@@ -14,6 +14,8 @@ export const isProxy = obj => {
     return obj[isProxySymbol] === true;
 };
 
+export const isTracingEnabled = () => Boolean(window.__REFACTOR_EXTENSION_IS_TRACING_ENABLED);
+
 export const toProxy = (obj, opts = {}) => {
     const { prefix = '', isDeep = false, callback } = opts;
     
@@ -43,7 +45,7 @@ export const toProxy = (obj, opts = {}) => {
                 return Reflect.get(target, key, receiver);
             }
 
-            if (isTracingCallbackEnabled) {
+            if (isTracingCallbackEnabled && isTracingEnabled()) {
                 const path = [prefix, key].filter(Boolean).join('.');
     
                 const err = new Error();

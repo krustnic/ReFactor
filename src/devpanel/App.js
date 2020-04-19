@@ -17,7 +17,9 @@ export class App extends React.PureComponent {
         count: 0,
         isInProcess: false,
         tree: isInExtension() ? {} : {
-            'users.0.location.name': {},
+            'users.0.location.name': {
+                'filepath:23:34': {}
+            },
             'users.1.location.name': {},
             'users.length.location.name': {}
         },

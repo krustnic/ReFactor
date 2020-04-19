@@ -52,9 +52,22 @@ export class FilterTree extends React.PureComponent {
         )
     }
     
+    handleCopy = value => e => {
+        e.stopPropagation();
+    
+        navigator.clipboard.writeText(value);
+    };
+    
     labelRenderer = ([key, ...rest], nodeType, expanded) => {
+        if (key === 'root') {
+            return 'state';
+        }
+        
+        const parts = key.split(':');
+        const filename = parts.splice(0, parts.length - 2).join('');
+        
         return (
-            <span>{key === 'root' ? 'state' : key}</span>
+            <span>{key} <a onClick={this.handleCopy(filename)} className={styles.link}>⎘</a></span>
         )
     };
     

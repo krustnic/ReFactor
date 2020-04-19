@@ -15,3 +15,7 @@
 .input:focus {
   outline: none;
 }
+
+.link {
+  cursor: pointer;
+}

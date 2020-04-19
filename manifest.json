@@ -1,6 +1,6 @@
 {
   "name": "ReFactor!",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Chrome extension for logging source files that use data from redux store",
   "manifest_version": 2,
   "icons": {

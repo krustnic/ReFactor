@@ -35,3 +35,19 @@
 
   border-right: 1px solid #eee;
 }
+
+.status {
+  font-size: 11px;
+
+  overflow: hidden;
+  height: 11px;
+
+  width: 100%;
+  text-align: right;
+
+  padding-right: 5px;
+}
+
+.status > .danger {
+  color: #fc3a4b;
+}

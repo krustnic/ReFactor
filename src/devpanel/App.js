@@ -23,15 +23,13 @@ export class App extends React.PureComponent {
         },
         filter: '',
         filterData: {},
-        activeTab: 'fields'
+        activeTab: 'fields',
+        isReducerWrapped: false
     };
     
     componentDidMount() {
-        this.getTracingStatus(({ isTracingEnabled }) => {
-            this.setState({
-                isTracingEnabled
-            })
-        });
+        this.getTracingStatus();
+        this.getWrapperStatus();
         
         window.dispatch = this.handleMessage;
     }
@@ -48,7 +46,12 @@ export class App extends React.PureComponent {
         
             this.setState({
                 isTracingEnabled,
-                count: 0
+                count: 0,
+                isReducerWrapped: false
+            });
+        } else if (msg.type === message.WRAPPED) {
+            this.setState({
+                isReducerWrapped: true
             });
         } else if (msg.type === message.TRACES_COUNT) {
             const count = msg.payload;
@@ -59,12 +62,26 @@ export class App extends React.PureComponent {
         }
     };
     
-    getTracingStatus = callback => {
+    getTracingStatus = () => {
         ChromeWrapper.devtools.inspectedWindow.eval(
             'window.__REFACTOR_EXTENSION_IS_TRACING_ENABLED === true;',
             null,
             isTracingEnabled => {
-                callback({ isTracingEnabled })
+                this.setState({
+                    isTracingEnabled
+                })
+            }
+        );
+    };
+    
+    getWrapperStatus = () => {
+        ChromeWrapper.devtools.inspectedWindow.eval(
+            'window.__REFACTOR_EXTENSION_IS_REDUCER_WRAPPED === true;',
+            null,
+            isReducerWrapped => {
+                this.setState({
+                    isReducerWrapped
+                })
             }
         );
     };
@@ -156,7 +173,16 @@ export class App extends React.PureComponent {
     };
     
     render () {
-        const { isTracingEnabled, count, isInProcess, tree, filter, filterData, activeTab } = this.state;
+        const {
+            isTracingEnabled,
+            count,
+            isInProcess,
+            tree,
+            filter,
+            filterData,
+            activeTab,
+            isReducerWrapped
+        } = this.state;
         
         return (
             <div className={styles.container}>
@@ -171,6 +197,7 @@ export class App extends React.PureComponent {
                     handleLoad={this.handleLoad}
                     handleClear={this.handleClear}
                     changeTab={this.changeTab}
+                    isReducerWrapped={isReducerWrapped}
                 />
                 <div className={styles.content}>
                     { activeTab === 'fields' &&

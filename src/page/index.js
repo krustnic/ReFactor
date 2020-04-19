@@ -13,6 +13,9 @@ import * as messages from "../utils/messageTypes";
     
     window.__REFACTOR_WRAP_REDUCER__ = (fn) => {
         console.log('REFACTOR EXTENSION: wrap reducer');
+    
+        window.__REFACTOR_EXTENSION_IS_REDUCER_WRAPPED = true;
+        toContentScript(messages.WRAPPED, {});
         
         return function() {
             const currentState = fn.apply(this, arguments);

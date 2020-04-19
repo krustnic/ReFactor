@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch": "webpack --config ./webpack.config.js --watch",
+    "watch": "webpack --mode=development --config ./webpack.config.js --watch",
     "test": "jest",
     "test-debug": "node --inspect-brk node_modules/.bin/jest --runInBand",
     "package": "webpack --mode=production --config ./webpack.config.js && zip refactor-extension -@ < extension-files.txt"

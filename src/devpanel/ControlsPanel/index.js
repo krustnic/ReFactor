@@ -22,7 +22,8 @@ export class ControlsPanel extends React.PureComponent {
         handleReload: PropTypes.func.isRequired,
         handleLoad: PropTypes.func.isRequired,
         handleClear: PropTypes.func.isRequired,
-        changeTab: PropTypes.func.isRequired
+        changeTab: PropTypes.func.isRequired,
+        isReducerWrapped: PropTypes.bool.isRequired
     };
     
     render () {
@@ -34,7 +35,8 @@ export class ControlsPanel extends React.PureComponent {
             handleReload,
             handleLoad,
             handleClear,
-            activeTab
+            activeTab,
+            isReducerWrapped
         } = this.props;
         
         return (
@@ -82,6 +84,9 @@ export class ControlsPanel extends React.PureComponent {
                     onClick={handleClear}
                     disabled={isInProcess}
                 />
+                <div className={styles.status}>
+                    {! isReducerWrapped && <span className={styles.danger}>Reducer not wrapped</span>}
+                </div>
             </div>
         )
     }

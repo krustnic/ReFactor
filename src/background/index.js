@@ -31,6 +31,9 @@ const handleContentMessages = port => {
             case messages.INIT:
                 devtoolPorts[tabId] && devtoolPorts[tabId].postMessage(msg);
                 break;
+            case messages.WRAPPED:
+                devtoolPorts[tabId] && devtoolPorts[tabId].postMessage(msg);
+                break;
             case messages.TRACES_COUNT:
                 devtoolPorts[tabId] && devtoolPorts[tabId].postMessage(msg);
                 break;

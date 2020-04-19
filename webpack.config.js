@@ -1,8 +1,10 @@
 const path = require('path');
 
+const isDev = process.env.NODE_ENV === 'development';
+
 module.exports = {
-	mode: 'development',
-	devtool: 'source-map',
+	mode: isDev ? 'development' : 'production',
+	devtool: isDev ? 'inline-source-map' : undefined,
 	node: {
 		fs: 'empty',
 	},

@@ -1,0 +1,11 @@
+assets/icon.png
+dist/background.bundle.js
+dist/content.bundle.js
+dist/devpanel.bundle.js
+dist/devtools.bundle.js
+dist/page.bundle.js
+dist/popup.bundle.js
+html/devpanel.html
+html/devtools.html
+html/popup.html
+manifest.json

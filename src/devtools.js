@@ -23,7 +23,7 @@ chrome.devtools.panels.create(
             const { token } = msg;
             const cb = callbacks[token];
             
-            cb && cb(msg) || _window.dispatch(msg);
+            cb && cb(msg) || _window && _window.dispatch(msg);
         });
         
         extensionPanel.onShown.addListener(function tmp(panelWindow) {

@@ -22,7 +22,11 @@ export class UsageTree extends React.PureComponent {
         
         return (
             <div className={styles.container}>
-                <JSONTree data={data} labelRenderer={this.labelRenderer}/>
+                <JSONTree
+                    data={data}
+                    labelRenderer={this.labelRenderer}
+                    getItemString={this.getItemString}
+                />
             </div>
         )
     }
@@ -48,5 +52,9 @@ export class UsageTree extends React.PureComponent {
         }
         
         return <span>{key} (<span className={styles.link} onClick={this.handleUsageClick(filter)}>➔</span>)</span>
+    };
+    
+    getItemString = () => {
+        return null;
     };
 }

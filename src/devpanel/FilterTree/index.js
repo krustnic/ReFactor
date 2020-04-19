@@ -43,7 +43,11 @@ export class FilterTree extends React.PureComponent {
                         onClick={this.props.handleFilter}
                     />
                 </div>
-                <JSONTree data={filterData} labelRenderer={this.labelRenderer} />
+                <JSONTree
+                    data={filterData}
+                    labelRenderer={this.labelRenderer}
+                    getItemString={this.getItemString}
+                />
             </div>
         )
     }
@@ -52,5 +56,9 @@ export class FilterTree extends React.PureComponent {
         return (
             <span>{key === 'root' ? 'state' : key}</span>
         )
-    }
+    };
+    
+    getItemString = () => {
+        return null;
+    };
 }

@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  align-items: center;
+
+  height: 29px;
+
+  border-bottom: 1px solid #eee;
+}
+
+.eventsControl {
+  width: 100px;
+}
+
+.recording {
+  color: #fc3a4b;
+}
+
+.tabs {
+  display: flex;
+}
+
+.tab {
+  padding: 0 5px 0 5px;
+
+  border-bottom: 2px solid transparent;
+}
+
+.tab.active {
+  border-bottom: 2px solid #0088fa;
+}
+
+.delimiter {
+  height: 100%;
+  margin: 0 4px 0 4px;
+
+  border-right: 1px solid #eee;
+}

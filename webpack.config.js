@@ -11,7 +11,7 @@ module.exports = {
 		'popup': './src/popup.js',
 		'background': './src/background/index.js',
 		'devtools': './src/devtools.js',
-		'devpanel': './src/devpanel.js',
+		'devpanel': './src/devpanel/index.js',
 		'page': './src/page/index.js'
 	},
 	output: {
@@ -29,6 +29,23 @@ module.exports = {
 						presets: ['@babel/preset-env']
 					}
 				}
+			},
+			{
+				test: /\.css$/,
+				use: [
+					'style-loader',
+					{
+						loader: 'css-loader',
+						options: {
+							importLoaders: 1,
+							modules: true
+						}
+					}
+				]
+			},
+			{
+				test: /\.svg$/,
+				loader: 'svg-inline-loader'
 			}
 		],
 	}

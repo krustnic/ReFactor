@@ -1,0 +1,25 @@
+.button {
+  display: flex;
+  align-items: center;
+
+  border: none;
+  background: #fff;
+  color: #5f6673;
+  padding: 0;
+  flex: 0 0 auto;
+}
+
+.button:hover {
+  color: #0088fa;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+
+  padding: 4px;
+}

@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <style>
+        html,body,#app {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
 <body>
-<div>
-    <button id="record">Record</button>
-    <button id="reload">Reload</button>
-    <button id="load">Load</button>
-    <button id="clear">Clear</button>
-</div>
-<div>
-    <span id="status"></span>
-</div>
-<div>
-    <pre id="json"></pre>
-</div>
+<div id="app"></div>
 <script src="../dist/devpanel.bundle.js"></script>
 </body>
 </html>

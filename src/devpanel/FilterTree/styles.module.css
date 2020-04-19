@@ -1,0 +1,17 @@
+.controls {
+  display: flex;
+}
+
+.input {
+  width: 100%;
+  font-size: 12px;
+
+  color: #5f6673;
+  padding: 0 5px 0 5px;
+
+  border: 1px solid #dcdcdc;
+}
+
+.input:focus {
+  outline: none;
+}
